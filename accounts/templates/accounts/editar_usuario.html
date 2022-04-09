@@ -1,0 +1,18 @@
+{% extends "indice/index.html" %}
+
+{% block "titulo_pestana" %}
+<title>Editar usuario</title>
+{% endblock "titulo_pestana" %}
+
+
+{% block "formulario" %}
+{% if msj %}
+        {{msj}}
+    {% endif %}
+
+     <form action={% url 'editar_usuario'%} method="post" enctype='multipart/form-data'> 
+         {% csrf_token %}
+        {{form.as_p}}
+         <button>Guardar cambios</button>
+     </form>    
+{% endblock "formulario" %}

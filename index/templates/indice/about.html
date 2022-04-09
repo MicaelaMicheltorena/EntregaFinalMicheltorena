@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends "indice/index.html" %}
+
+{% block "titulo_pestana" %}
+<title>About us</title>
+{% endblock "titulo_pestana" %}
+      
+{% block "header" %}
+  <header class="masthead" style="background-image: url('static/assets/img/about-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <div class="site-heading">
+              <h1>About us</h1>
+              <span class="subheading">Grupo 6 - Micaela Micheltorena y Mauro Testana</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock "header" %}
+{% block "body" %}
+  <!-- Main Content-->
+  <main class="mb-4">
+    <style> 
+      .justificado{text-align: justify}
+    </style>
+      <div class="container px-4 px-lg-5">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+              <div class="col-md-10 col-lg-8 col-xl-7 justificado" >
+                  <p>Tanto Mauro como yo estudiamos Actuario en la Universidad de Buenos Aires, una carrera compleja pero sumamente apasionante. Para insertarnos en el mercado laboral actual era imprescindible saber programa por lo que optamos por hacer el curso de Python en Coderhouse. </p>
+                  <p>En esta página web podrán ver que mi trabajo final cuenta con todos los requisitos obligatorios. Para mi la estética es un componente muy importante en todo trabajo así que le dediqué tiempo extra para dejarla impecable. </p>
+                  <p>Espero que al corregirla disfruten tanto como yo al hacerla.</p>
+                  <p>Con mucho amor y dedicación, </p>
+                  <p>Micaela.</p>
+              </div>
+          </div>
+      </div>
+  </main>
+      
+{% endblock "body" %}
