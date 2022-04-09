@@ -44,7 +44,7 @@ def registrar(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             form.save()
-            return render(request, 'indice/index.html', {'msj': f'Se creo el usuario {username}'})
+            return render(request, 'indice/index.html', {'msj': f'Se creó correctamente el usuario: {username}'})
         else:
              return render(request, 'accounts/registrar.html', {'form':form, 'msj': ''})    
     
@@ -78,7 +78,7 @@ def editar_usuario(request):
             request.user.save()
             user_extension_logued.save()
             
-            return redirect('index')
+            return redirect('inicio')
         else:
              return render(request, 'accounts/editar_usuario.html', {'form':form, 'msj': ''})    
     
@@ -95,3 +95,8 @@ def editar_usuario(request):
         }
     )
     return render(request,  'accounts/editar_usuario.html', {'form': form, 'msj':''})
+  
+
+@login_required
+def usuario_datos(request):
+    return render(request, 'accounts/usuario_datos.html', {})

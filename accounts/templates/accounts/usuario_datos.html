@@ -1,0 +1,52 @@
+{% extends "indice/index.html" %}
+
+{% block "titulo_pestana" %}
+<title>Perfil</title>
+{% endblock "titulo_pestana" %}
+
+{% block "header" %}
+<header class="masthead" style="background-image: url('static/assets/img/barco-bg.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+              <div class="site-heading">
+               {% if msj %}
+                  <h2> {{msj}} </h2>
+               {% else %}
+                  <h1>Información del usuario</h1>
+                {% endif %}
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+{% endblock "header" %}
+
+{% block "formulario" %}
+
+<style> 
+  .centrado{text-align: center}
+</style>
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7 centrado" >
+        
+        
+          <p>Nombre: {{request.user.first_name}}</p>
+          <p>Apellido: {{request.user.last_name}}</p>
+          <p>Email: {{request.user.email}}</p>
+          <p>Avatar: <img src="{{request.user.userextension.avatar.url}}" alt="imagen de perfil"></p>
+          <p>{{request.user.userextension.link}}</p>
+        
+        <p> Recuerde que puede editar los datos en cualquier momento.
+        <a href={% url 'editar_usuario' %}><input type="button" value="Editar datos"></a>
+        </p>
+      </div>
+  </div>
+</div>
+
+
+{% endblock "formulario" %}
+
+{% block "body" %}
+{% endblock "body" %}
