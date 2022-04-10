@@ -30,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li> {% endcomment %}
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url "about" %}>About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url "about" %}>Nosotros</a></li>
                         {% comment %} <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</a></li> {% endcomment %}
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href={% url "editar_usuario"%}>Editar usuario</a></li>
@@ -47,7 +47,7 @@
         </nav>
         <!-- Page Header-->
         {% block "header" %}
-        <header class="masthead" style="background-image: url('static/assets/img/dubai-bg.jpg')">
+        <header class="masthead" style="background-image: url('../../static/assets/img/dubai-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
