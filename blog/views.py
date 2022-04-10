@@ -2,6 +2,10 @@ from django.shortcuts import render,redirect
 from .forms import CrearBlog, BlogBusqueda
 from django.contrib.auth.decorators import login_required
 from .models import Blog
+from django.views.generic.edit import DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.detail import DetailView
+
 
 @login_required 
 def crear_blog(request):
@@ -28,3 +32,18 @@ def lista_blogs(request):
         
     form = BlogBusqueda()
     return render(request, "blog/lista_blogs.html", {'form': form, 'blogs': blogs})
+
+
+class BorrarBlog(LoginRequiredMixin, DeleteView):
+    model = Blog
+    success_url = '/pages/blogs/'
+
+class DetalleBlog(DetailView):
+    model = Blog
+    template_name = "pages/detalle_blog.html"
+
+
+class EditarBlog(LoginRequiredMixin, UpdateView):
+    model = Blog
+    success_url = '/pages/blogs/'
+    fields = ['titulo', 'subtitulo', 'cuerpo','autor','fecha' ]

@@ -1,7 +1,7 @@
 {% extends "indice/index.html" %}
 
 {% block "titulo_pestana" %}
-<title>Crear Blog</title>
+<title>Detalle Blog</title>
 {% endblock "titulo_pestana" %}
 
 {% block "header" %}
@@ -10,7 +10,7 @@
       <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
               <div class="site-heading">
-               <h1>Crear Blog</h1>
+               <h1>Detalle Blog</h1>
               </div>
           </div>
       </div>
@@ -23,16 +23,15 @@
   <div class="row gx-4 gx-lg-5 justify-content-left">
     <div class="col-md-10 col-lg-8 col-xl-7 " > 
         <p >
-          <a href= {% url "blogs" %} ><input type="button" value="Ver lista de blogs"></a>
+          <a href={% url 'blogs'%}><input type="button" value="Ver lista de blogs"></a>
         </p>
-        <form action="" method="post">
-              {% csrf_token %}
-            <table>
-              {{formulario.media}}
-              {{formulario.as_table}}
-            </table>
-             <button>Crear</button>
-        </form>    
+        <p>
+          {{object}}
+          {% comment %} <li>Titulo: {{object.titulo}}</li>
+          <li>Subtitulo: {{object.subtitulo}}</li>
+          <li>Cuerpo: {{object.cuerpo}}</li>
+          <li>Autor: {{object.autor}}</li> {% endcomment %}
+        </p>  
       </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 {% extends "indice/index.html" %}
 
 {% block "titulo_pestana" %}
-<title>Crear Blog</title>
+<title>Blogs</title>
 {% endblock "titulo_pestana" %}
 
 {% block "header" %}
@@ -10,7 +10,7 @@
       <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
               <div class="site-heading">
-               <h1>Crear Blog</h1>
+               <h1>Blogs</h1>
               </div>
           </div>
       </div>
@@ -19,32 +19,25 @@
 {% endblock "header" %}
 
 {% block "formulario" %}
-<p> 
-  <a href= {% url "crear_blog" %}><input type="button" value="Crear Blog"></a>
-</p>
 <style> 
   .centrado{text-align: center}
 </style>
 <div class="container px-4 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
-      <div class="col-md-10 col-lg-8 col-xl-7 centrado" >
-        <form action="" method="get">
-              {% csrf_token %}
-            <table>
-              {{form.as_table}}
-            </table>
-             <button>Buscar</button>
-        </form>    
+    <div class="col-md-10 col-lg-8 col-xl-7" >
+        <p > 
+          <a href= {% url "crear_blog" %}><input type="button" value="Crear Blog"></a>
+        </p>
+        {% for blog in lista_blogs %}
+        <li>
+            <a href={% url 'detalle_blog' blog.id %}><input type="button" value="Detalle Blog"></a>
+            <a href={% url 'actualizar_blog' blog.id %}><input type="button" value="Editar Blog"></a>
+            <a href={% url 'borrar_blog' blog.id %}><input type="button" value="Borrar Blog"></a>
+        </li>
+    {% endfor %} 
       </div>
   </div>
 </div> 
-{% comment %} {% for cerrajero in cerrajeros %}
-        <li>
-            <a href={% url 'detalle_cerrajero' cerrajero.id %}>{{cerrajero}}</a> |
-            <a href={% url 'editar_cerrajero' cerrajero.id %}>Editar</a> |
-            <a href={% url 'borrar_cerrajero' cerrajero.id %}>Borrar</a>
-        </li>
-    {% endfor %} {% endcomment %}
 {% endblock "formulario" %}
 
 {% block "body" %}
