@@ -31,7 +31,7 @@
       <div class="col-md-10 col-lg-8 col-xl-7 centrado" >
         <form action={% url 'editar_usuario'%} method="post" enctype='multipart/form-data'> 
             {% csrf_token %}
-           {{form.as_p}}
+            {{form.as_p}}
             <button>Guardar cambios</button>
         </form>    
       </div>

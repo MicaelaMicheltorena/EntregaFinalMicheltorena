@@ -25,19 +25,20 @@
         <p >
           <a href= {% url "blogs" %} ><input type="button" value="Ver lista de blogs"></a>
         </p>
-        <form action="" method="post">
+        <form action="{% url 'actualizar_blog' object.id %}" method="post">
           {% csrf_token %}
   
           <table>
+              {{form.media}}
               {{form.as_table}}
            </table>
   
-          <input type="submit" placeholder="actualizar">
+          <input type="submit" value="Actualizar">
       </form>   
       </div>
   </div>
 </div>
-{% comment %} {% url 'actualizar_blog' blog.id %} {% endcomment %}
+
 {% endblock "formulario" %}
 
 {% block "body" %}

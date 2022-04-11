@@ -1,7 +1,7 @@
 {% extends "indice/index.html" %}
 
 {% block "titulo_pestana" %}
-<title>Detalle Blog</title>
+<title>{{object.titulo}}</title>
 {% endblock "titulo_pestana" %}
 
 {% block "header" %}
@@ -32,6 +32,7 @@
         <p> {{object.fecha}} </p>
         <p >
           <a href={% url 'blogs'%}><input type="button" value="Ver lista de blogs"></a>
+          
         </p>
                 {% comment %} <p> {{object.imagen | safe}} </p> {% endcomment %}
             </div>
