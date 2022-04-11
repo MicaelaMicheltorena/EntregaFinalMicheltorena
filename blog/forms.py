@@ -6,7 +6,6 @@ class CrearBlog(forms.Form):
   subtitulo = RichTextFormField(required=True)
   cuerpo = RichTextFormField(required=False)
   autor = RichTextFormField(required=True)
-  fecha = forms.DateTimeField(input_formats='%Y-%m-%d %H:%M:%S')
   imagen = forms.ImageField(required=False)
   
   
