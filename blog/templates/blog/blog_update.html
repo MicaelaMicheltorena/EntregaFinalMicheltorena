@@ -1,7 +1,7 @@
 {% extends "indice/index.html" %}
 
 {% block "titulo_pestana" %}
-<title>Borrar Blog</title>
+<title>Editar Blog</title>
 {% endblock "titulo_pestana" %}
 
 {% block "header" %}
@@ -10,7 +10,7 @@
       <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
               <div class="site-heading">
-               <h1>Borrar Blog</h1>
+               <h1>Editar Blog</h1>
               </div>
           </div>
       </div>
@@ -27,13 +27,17 @@
         </p>
         <form action="" method="post">
           {% csrf_token %}
-          Desea borrar el blog: {{object}}?
-          <button>Borrar</button>
-      </form>
+  
+          <table>
+              {{form.as_table}}
+           </table>
+  
+          <input type="submit" placeholder="actualizar">
+      </form>   
       </div>
   </div>
 </div>
-
+{% comment %} {% url 'actualizar_blog' blog.id %} {% endcomment %}
 {% endblock "formulario" %}
 
 {% block "body" %}

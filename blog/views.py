@@ -33,17 +33,19 @@ def lista_blogs(request):
     form = BlogBusqueda()
     return render(request, "blog/lista_blogs.html", {'form': form, 'blogs': blogs})
 
-
-class BorrarBlog(LoginRequiredMixin, DeleteView):
-    model = Blog
-    success_url = '/pages/blogs/'
-
 class DetalleBlog(DetailView):
     model = Blog
-    template_name = "pages/detalle_blog.html"
-
+    template_name = "blog/detalle_blog.html"
 
 class EditarBlog(LoginRequiredMixin, UpdateView):
     model = Blog
-    success_url = '/pages/blogs/'
-    fields = ['titulo', 'subtitulo', 'cuerpo','autor','fecha' ]
+    template_name = "blog/blog_update.html"
+    success_url = "/pages/"
+    fields = ['titulo', 'subtitulo', 'cuerpo','autor','fecha', "imagen" ]
+
+class BorrarBlog(LoginRequiredMixin, DeleteView):
+    model = Blog
+    template_name = "blog/blog_delete.html"
+    success_url = "/pages/"
+ 
+

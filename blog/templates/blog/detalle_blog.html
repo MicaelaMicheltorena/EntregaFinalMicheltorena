@@ -10,7 +10,7 @@
       <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
               <div class="site-heading">
-               <h1>Detalle Blog</h1>
+               <h1>{{object.titulo}}</h1>
               </div>
           </div>
       </div>
@@ -19,22 +19,25 @@
 {% endblock "header" %}
 
 {% block "formulario" %}
-<div class="container px-4 px-lg-5">
-  <div class="row gx-4 gx-lg-5 justify-content-left">
-    <div class="col-md-10 col-lg-8 col-xl-7 " > 
+<main class="mb-4">
+  <style> 
+    .justificado{text-align: justify}
+  </style>
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7 justificado" >
+        <p> {{object.subtitulo | safe}} </p>
+        <p> {{object.cuerpo | safe}} </p>
+        <p> {{object.autor | safe}} </p>
+        <p> {{object.fecha}} </p>
         <p >
           <a href={% url 'blogs'%}><input type="button" value="Ver lista de blogs"></a>
         </p>
-        <p>
-          {{object}}
-          {% comment %} <li>Titulo: {{object.titulo}}</li>
-          <li>Subtitulo: {{object.subtitulo}}</li>
-          <li>Cuerpo: {{object.cuerpo}}</li>
-          <li>Autor: {{object.autor}}</li> {% endcomment %}
-        </p>  
-      </div>
-  </div>
-</div>
+                {% comment %} <p> {{object.imagen | safe}} </p> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</main>
 
 {% endblock "formulario" %}
 

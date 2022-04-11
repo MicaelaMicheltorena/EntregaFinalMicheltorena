@@ -25,14 +25,24 @@
 <div class="container px-4 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7" >
-        <p > 
+        <p class="centrado"> 
           <a href= {% url "crear_blog" %}><input type="button" value="Crear Blog"></a>
+          <a href={% url "blogs" %}><input type="button" value="Ver lista Blogs"></a>
         </p>
-        {% for blog in lista_blogs %}
+        <form action="" method="get">
+          {% csrf_token %}
+          <table>
+              {{form.as_table}}
+          </table>
+          <button>Buscar</button>
+      </form>
+
+    {% for blog in blogs %}
         <li>
-            <a href={% url 'detalle_blog' blog.id %}><input type="button" value="Detalle Blog"></a>
+          {{blog}}
+            <a href={% url 'detalle_blog' blog.id %}>{{blog.titulo | safe}}{{blog.autor | safe}}</a>
             <a href={% url 'actualizar_blog' blog.id %}><input type="button" value="Editar Blog"></a>
-            <a href={% url 'borrar_blog' blog.id %}><input type="button" value="Borrar Blog"></a>
+            <a href={% url 'borrar_blog' blog.id %}><input type="button" value="Borrar Blog"></a> 
         </li>
     {% endfor %} 
       </div>
