@@ -130,7 +130,7 @@
                     <hr class="my-4" />
                     <!-- Pager-->
                     {% if request.user.is_authenticated %}
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="pages/">Lista de Blogs →</a></div>
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href= {% url "blogs" %}>Lista de Blogs →</a></div>
                     {% else %}  
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="about/">Nosotros →</a></div>  
                     {% endif %}

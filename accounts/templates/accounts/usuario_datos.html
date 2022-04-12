@@ -35,7 +35,11 @@
           <p>Nombre: {{request.user.first_name}}</p>
           <p>Apellido: {{request.user.last_name}}</p>
           <p>Email: {{request.user.email}}</p>
-          <p>Avatar: <img src="{{request.user.userextension.avatar.url}}" alt="imagen de perfil"></p>
+          {% if request.user.userextension.avatar %}
+          <p>Imagen de perfil: <img src="{{request.user.userextension.avatar.url}}" alt="imagen de perfil"></p>
+          {% else %}
+          <p> Imagen de perfil: {{request.user.username}} no posee una </p>
+          {% endif %}
           <p>{{request.user.userextension.link}}</p>
         
         <p> Recuerde que puede editar los datos en cualquier momento.

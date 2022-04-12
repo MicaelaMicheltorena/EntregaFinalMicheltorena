@@ -25,12 +25,12 @@
         <p >
           <a href= {% url "blogs" %} ><input type="button" value="Ver lista de blogs"></a>
         </p>
-        <form action="{% url 'actualizar_blog' object.id %}" method="post">
+        <form action="{% url 'actualizar_blog' blog.id %}" method="post" enctype="multipart/form-data">
           {% csrf_token %}
   
           <table>
-              {{form.media}}
-              {{form.as_table}}
+              {{formulario.media}}
+              {{formulario.as_table}}
            </table>
   
           <input type="submit" value="Actualizar">
