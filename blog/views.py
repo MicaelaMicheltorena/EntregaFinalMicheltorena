@@ -41,7 +41,7 @@ class EditarBlog(LoginRequiredMixin, UpdateView):
     model = Blog
     template_name = "blog/blog_update.html"
     success_url = "/pages/"
-    fields = ['titulo', 'subtitulo', 'cuerpo','autor', "imagen" ]
+    fields = ['titulo', 'subtitulo', 'cuerpo','autor', 'imagen' ]
 
 class BorrarBlog(LoginRequiredMixin, DeleteView):
     model = Blog

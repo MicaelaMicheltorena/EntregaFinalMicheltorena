@@ -7,7 +7,7 @@ En el inicio tienen un pequeño resumen de los blogs creados y si tocan sobre el
 
 Mi recomendación:
 
-1) En el inicio deslizar hasta abajo de todo para ver todo lo que está allí.
+1)En el inicio deslizar hasta abajo de todo para ver todo lo que está allí.
 2)Corroborar que funciona "Nosotros"
 3)Registrarse
 4)Iniciar sesión
