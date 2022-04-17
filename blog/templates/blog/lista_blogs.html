@@ -22,6 +22,8 @@
 <style> 
   .centrado{text-align: center}
 </style>
+
+{% if blogs %}
 <div class="container px-4 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7" >
@@ -51,6 +53,17 @@
       </div>
   </div>
 </div> 
+{% else %}
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7" >
+        <p class="centrado"> 
+          Aun no existen blogs. 
+        </p>
+    </div>
+  </div>
+</div> 
+{% endif %}
 {% endblock "formulario" %}
 
 {% block "body" %}

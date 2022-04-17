@@ -23,9 +23,9 @@
   <div class="row gx-4 gx-lg-5 justify-content-left">
     <div class="col-md-10 col-lg-8 col-xl-7 " > 
         <p >
-          <a href= {% url "blogs" %} ><input type="button" value="Ver lista de blogs" enctype="multipart/form-data"></a>
+          <a href= {% url "blogs" %} ><input type="button" value="Ver lista de blogs"></a>
         </p>
-        <form action="" method="post">
+        <form action={% url "crear_blog" %} method="post" enctype="multipart/form-data">
               {% csrf_token %}
             <table>
               {{formulario.media}}
