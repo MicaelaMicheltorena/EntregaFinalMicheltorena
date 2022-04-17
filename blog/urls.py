@@ -7,4 +7,5 @@ urlpatterns = [
     path('<int:pk>', views.DetalleBlog.as_view(), name="detalle_blog"),
     path('<int:id>/update', views.actualizar_blog, name="actualizar_blog"),
     path('<int:pk>/delete', views.BorrarBlog.as_view(), name="borrar_blog"),
+    path("buscador/", views.busqueda_blog, name="busqueda_blog"),
 ]

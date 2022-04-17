@@ -36,7 +36,7 @@
           <p>Apellido: {{request.user.last_name}}</p>
           <p>Email: {{request.user.email}}</p>
           {% if request.user.userextension.avatar %}
-          <p>Imagen de perfil: <img src="{{request.user.userextension.avatar.url}}" alt="imagen de perfil"></p>
+          <p>Imagen de perfil: <img src="{{request.user.userextension.avatar.url}}" height= "100" alt="imagen de perfil"></p>
           {% else %}
           <p> Imagen de perfil: {{request.user.username}} no posee una </p>
           {% endif %}

@@ -23,7 +23,7 @@
   <div class="row gx-4 gx-lg-5 justify-content-left">
     <div class="col-md-10 col-lg-8 col-xl-7 " > 
         <p >
-          <a href= {% url "blogs" %} ><input type="button" value="Ver lista de blogs"></a>
+          <a href= {% url "blogs" %} ><input type="button" value="Ver lista de blogs" enctype="multipart/form-data"></a>
         </p>
         <form action="" method="post">
               {% csrf_token %}

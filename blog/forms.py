@@ -10,7 +10,7 @@ class CrearBlog(forms.Form):
   
   
 class BlogBusqueda(forms.Form):
-    titulo = forms.CharField(max_length=210)
+    partial_blog = forms.CharField(label='Buscador',max_length=20)
     
 
 class BlogFormulario(forms.Form):

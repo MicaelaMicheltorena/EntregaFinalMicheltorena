@@ -14,5 +14,5 @@ class Blog(models.Model):
   
   def __str__(self):
     return "Blog:"
-    # return f"{self.titulo}, Autor:{self.autor}"
+
     

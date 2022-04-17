@@ -1,7 +1,7 @@
 {% extends "indice/index.html" %}
 
 {% block "titulo_pestana" %}
-<title>Blogs</title>
+<title>Buscar Blog</title>
 {% endblock "titulo_pestana" %}
 
 {% block "header" %}
@@ -10,7 +10,7 @@
       <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-md-10 col-lg-8 col-xl-7">
               <div class="site-heading">
-               <h1>Blogs</h1>
+               <h1>Buscar Blog</h1>
               </div>
           </div>
       </div>
@@ -27,27 +27,28 @@
     <div class="col-md-10 col-lg-8 col-xl-7" >
         <p class="centrado"> 
           <a href={% url "blogs" %}><input type="button" value="Ver lista Blogs"></a>
-          <a href={% url "busqueda_blog" %}><input type="button" value="Buscar un Blog"></a>
         </p>
-    
-    {% for blog in blogs %}  
-    <style> 
-      .justificado{text-align: justify}
-    </style>             
-      <div class="post-preview justificado">
-        <a href= "{% url 'detalle_blog' blog.id %}">
-            <h2 class="post-title">{{blog.titulo | safe}}</h2>
-            <h3 class="post-subtitle">{{blog.subtitulo | safe}}</h3>
-        </a>
-            <p class="post-meta">
-                            
-            <a>{{blog.autor | safe}}</a>
-                {{blog.fecha}}
-            </p>
-        <a href={% url 'actualizar_blog' blog.id %}><input type="button" value="Editar Blog"></a>
-        <a href={% url 'borrar_blog' blog.id %}><input type="button" value="Borrar Blog"></a>
-      </div>
-    {% endfor %}
+        <form action={% url 'busqueda_blog' %} method="get">
+          {% csrf_token %}
+  
+          <table>
+              {{buscador.as_table}}
+          </table>
+  
+          <input type="submit" placeholder="Buscar">
+      </form>
+  
+      {% if dato %}
+          Se busco por el dato: {{dato}}
+          {% for blog in blog_buscados %}
+          <li>
+              {{blog.titulo | safe}} {{blog.autor | safe}}|
+              <a href={% url 'detalle_blog' blog.id %}>Leer más</a>
+          </li>
+          {% endfor %}
+      {% else %}
+          No se buscó nada.
+      {% endif %}
       </div>
   </div>
 </div> 

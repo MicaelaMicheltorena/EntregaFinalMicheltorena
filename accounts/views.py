@@ -6,8 +6,6 @@ from .forms import NuestraCreacionUser, EditFullUser
 from django.contrib.auth.decorators import login_required
 from .models import UserExtension
 
-# Create your views here.
-
 
 def login(request):
     
@@ -61,13 +59,9 @@ def editar_usuario(request):
         form = EditFullUser(request.POST, request.FILES)
         
         if form.is_valid():
-            #username = form.cleaned_data['username']
-            #form.save()
-            #return render(request, 'index/index.html', {'msj': f'Se creo el usuario {username}'})
             request.user.email = form.cleaned_data['email']
             request.user.first_name = form.cleaned_data['first_name']
             request.user.last_name = form.cleaned_data['last_name']
-            #request.user. = form.cleaned_data['email']
             user_extension_logued.avatar = form.cleaned_data['avatar']
             user_extension_logued.link = form.cleaned_data['link']
             user_extension_logued.more_description = form.cleaned_data['more_description']

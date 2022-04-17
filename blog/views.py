@@ -7,14 +7,28 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
 
 
+def busqueda_blog(request):
+    blog_buscados = []
+    dato = request.GET.get('partial_blog', None)
+    
+    if dato is not None:
+        blog_buscados = Blog.objects.filter(titulo__icontains=dato)
+    
+    buscador = BlogBusqueda()
+    return render(
+        request, "blog/busqueda_blog.html",
+        {'buscador': buscador, 'blog_buscados': blog_buscados, 'dato': dato}
+    )
+    
+    
 @login_required 
 def crear_blog(request):
   if request.method == "POST":
-    formulario = CrearBlog(request.POST)
+    formulario = CrearBlog(request.POST, request.FILES)
     
     if formulario.is_valid():
       data = formulario.cleaned_data
-      nuevo_blog = Blog(titulo = data["titulo"], subtitulo = data["subtitulo"], cuerpo=data["cuerpo"], autor=data["autor"])
+      nuevo_blog = Blog(titulo = data["titulo"], subtitulo = data["subtitulo"], cuerpo=data["cuerpo"], autor=data["autor"], imagen=data["imagen"],)
       nuevo_blog.save()
       return redirect("inicio")
     
